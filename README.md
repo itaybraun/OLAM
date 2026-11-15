@@ -30,10 +30,15 @@ This is not a finished product or a polished curriculum. It is a working lab whe
 
 🧪 **Early stage.** Structure, content, and direction will change often.
 
+## Project website
+
+The visual overview lives in [`index.html`](./index.html). To publish it with GitHub Pages, open the repository's **Settings → Pages**, choose **Deploy from a branch**, then select `main` and `/(root)`.
+
 ## Repository structure
 
 ```
 olam/
+├── index.html     # Project vision website
 ├── materials/     # Learning content and experiments
 ├── methods/       # Notes on teaching and learning approaches
 ├── tools/         # Scripts, prompts, and workflows
