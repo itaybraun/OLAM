@@ -32,14 +32,15 @@ This is not a finished product or a polished curriculum. It is a working lab whe
 
 ## Project website
 
-The visual overview lives in [`index.html`](./index.html), with a high-level [lesson flow example](./lesson-flow.md). To publish the site with GitHub Pages, open the repository's **Settings → Pages**, choose **Deploy from a branch**, then select `main` and `/(root)`.
+The visual overview lives in [`index.html`](./index.html), with a [detailed teacher walkthrough](./lesson-walkthrough.html) and a [lesson flow summary](./lesson-flow.md). To publish the site with GitHub Pages, open the repository's **Settings → Pages**, choose **Deploy from a branch**, then select `main` and `/(root)`.
 
 ## Repository structure
 
 ```
 olam/
 ├── index.html     # Project vision website
-├── lesson-flow.md # High-level example lesson journey
+├── lesson-flow.md # Lesson flow summary
+├── lesson-walkthrough.html # Detailed visual example
 ├── materials/     # Learning content and experiments
 ├── methods/       # Notes on teaching and learning approaches
 ├── tools/         # Scripts, prompts, and workflows

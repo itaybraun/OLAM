@@ -1,0 +1,1445 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="An illustrative OLAM lesson journey: what the teacher receives, how she adapts it, and how the class unfolds."
+    >
+    <meta name="theme-color" content="#f8f6f0">
+    <title>A Lesson, Start to Finish — OLAM</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #20233c;
+        --muted: #65677b;
+        --paper: #f8f6f0;
+        --white: #fffefa;
+        --coral: #ff765f;
+        --yellow: #f8d66d;
+        --lilac: #c9b8ff;
+        --mint: #a9e3cd;
+        --line: #e7e3da;
+        --serif: Georgia, "Times New Roman", serif;
+        font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: var(--paper);
+        scroll-behavior: smooth;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .wrap {
+        width: min(1120px, calc(100% - 48px));
+        margin-inline: auto;
+      }
+
+      .topbar {
+        display: flex;
+        min-height: 78px;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1rem;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 30px;
+        height: 30px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--ink);
+        color: var(--white);
+        font-family: var(--serif);
+        font-size: 1.15rem;
+        letter-spacing: 0;
+      }
+
+      .back-link {
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .back-link:hover,
+      .text-link:hover {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 310px;
+        align-items: center;
+        gap: 58px;
+        padding-block: 83px 70px;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        margin: 0 0 19px;
+        color: var(--muted);
+        font-size: 0.74rem;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        width: 22px;
+        height: 2px;
+        background: var(--coral);
+        content: "";
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 760px;
+        margin-bottom: 20px;
+        font-family: var(--serif);
+        font-size: clamp(3.1rem, 6vw, 5.4rem);
+        font-weight: 500;
+        letter-spacing: -0.065em;
+        line-height: 1;
+      }
+
+      h1 em {
+        color: #e96d57;
+        font-weight: 500;
+      }
+
+      .hero-copy {
+        max-width: 680px;
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 1.07rem;
+        line-height: 1.8;
+      }
+
+      .lesson-card {
+        position: relative;
+        overflow: hidden;
+        padding: 25px;
+        border-radius: 18px;
+        background: var(--ink);
+        color: white;
+      }
+
+      .lesson-card::after {
+        position: absolute;
+        top: -34px;
+        right: -40px;
+        width: 135px;
+        height: 135px;
+        border: 1px solid rgb(255 255 255 / 22%);
+        border-radius: 50%;
+        box-shadow: 0 0 0 15px rgb(255 255 255 / 4%), 0 0 0 31px rgb(255 255 255 / 4%);
+        content: "";
+      }
+
+      .lesson-card-label {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 25px;
+        color: #c4c5d3;
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .lesson-card strong {
+        display: block;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 5px;
+        font-family: var(--serif);
+        font-size: 1.42rem;
+        font-weight: 500;
+      }
+
+      .lesson-card p {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 16px;
+        color: #c4c5d3;
+        font-size: 0.86rem;
+      }
+
+      .lesson-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      .notice {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        padding: 17px 20px;
+        border: 1px solid #e8dfc7;
+        border-radius: 12px;
+        background: #fff9e8;
+        color: #5d594b;
+        font-size: 0.91rem;
+        line-height: 1.6;
+      }
+
+      .notice strong {
+        color: var(--ink);
+      }
+
+      .notice-icon {
+        display: grid;
+        width: 29px;
+        height: 29px;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--yellow);
+        color: var(--ink);
+        font-weight: 800;
+      }
+
+      .waypoints {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px 24px;
+        margin-block: 43px 74px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .waypoints a {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        color: var(--muted);
+        font-size: 0.83rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .waypoints a:hover {
+        color: var(--ink);
+      }
+
+      .waypoint-number {
+        display: grid;
+        width: 25px;
+        height: 25px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--yellow);
+        color: var(--ink);
+        font-size: 0.68rem;
+      }
+
+      .timeline {
+        position: relative;
+        padding-bottom: 24px;
+      }
+
+      .timeline::before {
+        position: absolute;
+        top: 20px;
+        bottom: 60px;
+        left: 47px;
+        width: 1px;
+        background: var(--line);
+        content: "";
+      }
+
+      .phase {
+        position: relative;
+        display: grid;
+        grid-template-columns: 96px minmax(0, 1fr);
+        gap: 40px;
+        padding-bottom: 86px;
+        scroll-margin-top: 24px;
+      }
+
+      .phase:last-child {
+        padding-bottom: 35px;
+      }
+
+      .phase-marker {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .phase-number {
+        display: grid;
+        width: 43px;
+        height: 43px;
+        place-items: center;
+        border: 4px solid var(--paper);
+        border-radius: 50%;
+        background: var(--ink);
+        color: white;
+        font-size: 0.76rem;
+        font-weight: 800;
+      }
+
+      .phase:nth-child(1) .phase-number {
+        background: var(--yellow);
+        color: var(--ink);
+      }
+
+      .phase:nth-child(2) .phase-number {
+        background: var(--coral);
+        color: var(--ink);
+      }
+
+      .phase:nth-child(3) .phase-number {
+        background: var(--lilac);
+        color: var(--ink);
+      }
+
+      .phase:nth-child(4) .phase-number {
+        background: var(--mint);
+        color: var(--ink);
+      }
+
+      .phase-day {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .phase-content {
+        min-width: 0;
+      }
+
+      .phase-kicker {
+        margin-bottom: 10px;
+        color: var(--muted);
+        font-size: 0.74rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .phase h2 {
+        margin-bottom: 13px;
+        font-family: var(--serif);
+        font-size: clamp(2.1rem, 4vw, 3.35rem);
+        font-weight: 500;
+        letter-spacing: -0.055em;
+        line-height: 1.08;
+      }
+
+      .phase-intro {
+        max-width: 760px;
+        margin-bottom: 29px;
+        color: var(--muted);
+        font-size: 1.02rem;
+        line-height: 1.8;
+      }
+
+      .section-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 20px;
+        margin: 35px 0 17px;
+      }
+
+      .section-heading h3 {
+        margin: 0;
+        font-family: var(--serif);
+        font-size: 1.65rem;
+        font-weight: 500;
+        letter-spacing: -0.035em;
+      }
+
+      .section-heading p {
+        max-width: 390px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.86rem;
+        line-height: 1.6;
+        text-align: right;
+      }
+
+      .asset-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+      }
+
+      .asset-card {
+        min-width: 0;
+        padding: 23px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--white);
+      }
+
+      .asset-card.wide {
+        grid-column: 1 / -1;
+      }
+
+      .asset-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        margin-bottom: 14px;
+        color: var(--muted);
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .duration {
+        padding: 5px 9px;
+        border-radius: 99px;
+        background: #f0edf8;
+        color: var(--ink);
+        letter-spacing: 0;
+      }
+
+      .asset-card h4 {
+        margin: 0 0 9px;
+        font-family: var(--serif);
+        font-size: 1.35rem;
+        font-weight: 500;
+        letter-spacing: -0.025em;
+        line-height: 1.2;
+      }
+
+      .asset-card p {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.7;
+      }
+
+      .asset-card p + p {
+        margin-top: 12px;
+      }
+
+      .deck-list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0 22px;
+        margin: 16px 0 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: deck;
+      }
+
+      .deck-list li {
+        position: relative;
+        min-height: 55px;
+        padding: 12px 0 11px 33px;
+        border-top: 1px solid var(--line);
+        color: #505267;
+        font-size: 0.86rem;
+        line-height: 1.55;
+        counter-increment: deck;
+      }
+
+      .deck-list li::before {
+        position: absolute;
+        top: 13px;
+        left: 0;
+        color: #8c82b6;
+        content: counter(deck, decimal-leading-zero);
+        font-size: 0.69rem;
+        font-weight: 800;
+      }
+
+      .chart-list,
+      .link-list,
+      .plain-list {
+        display: grid;
+        gap: 10px;
+        margin: 15px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .chart-list li,
+      .link-list li,
+      .plain-list li {
+        position: relative;
+        padding-left: 20px;
+        color: #505267;
+        font-size: 0.88rem;
+        line-height: 1.65;
+      }
+
+      .chart-list li::before,
+      .link-list li::before,
+      .plain-list li::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: #e96d57;
+        content: "↗";
+        font-weight: 800;
+      }
+
+      .link-list li::before {
+        color: #5b8d78;
+        content: "✓";
+      }
+
+      .chart-list strong,
+      .link-list strong,
+      .plain-list strong {
+        color: var(--ink);
+      }
+
+      .teacher-brief {
+        grid-column: 1 / -1;
+        overflow: hidden;
+        margin-top: 16px;
+        border-radius: 18px;
+        background: var(--ink);
+        color: white;
+      }
+
+      .brief-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 24px 27px;
+        border-bottom: 1px solid #4b4d65;
+      }
+
+      .brief-header p {
+        margin: 0;
+        color: #c4c5d3;
+        font-size: 0.73rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .brief-header h3 {
+        margin: 6px 0 0;
+        font-family: var(--serif);
+        font-size: 1.8rem;
+        font-weight: 500;
+      }
+
+      .brief-stamp {
+        display: grid;
+        width: 44px;
+        height: 44px;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--yellow);
+        color: var(--ink);
+        font-size: 1.2rem;
+      }
+
+      .brief-body {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 0;
+      }
+
+      .brief-block {
+        padding: 24px 27px;
+      }
+
+      .brief-block + .brief-block {
+        border-left: 1px solid #4b4d65;
+      }
+
+      .brief-block h4 {
+        margin: 0 0 12px;
+        color: var(--yellow);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .brief-block p {
+        margin-bottom: 0;
+        color: #e0e0e9;
+        font-size: 0.89rem;
+        line-height: 1.7;
+      }
+
+      .brief-block .brief-note {
+        margin-top: 12px;
+        color: #bcbecf;
+        font-size: 0.83rem;
+      }
+
+      .brief-block .plain-list li {
+        color: #e0e0e9;
+      }
+
+      .brief-block .plain-list strong {
+        color: white;
+      }
+
+      .agenda {
+        display: grid;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .agenda li {
+        display: grid;
+        grid-template-columns: 75px 1fr;
+        gap: 13px;
+        padding: 9px 0;
+        border-top: 1px solid #4b4d65;
+        color: #e0e0e9;
+        font-size: 0.84rem;
+        line-height: 1.5;
+      }
+
+      .agenda li:first-child {
+        border-top: 0;
+      }
+
+      .agenda time {
+        color: var(--mint);
+        font-variant-numeric: tabular-nums;
+        font-weight: 750;
+      }
+
+      .brief-questions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .brief-question {
+        padding: 15px 16px;
+        border: 1px solid #4b4d65;
+        border-radius: 12px;
+        color: #e0e0e9;
+        font-family: var(--serif);
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .brief-bottom {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-top: 1px solid #4b4d65;
+      }
+
+      .brief-bottom .brief-block + .brief-block {
+        border-left: 1px solid #4b4d65;
+      }
+
+      .care-note {
+        margin-top: 13px;
+        padding: 13px 15px;
+        border-left: 3px solid var(--coral);
+        background: #2a2d49;
+        color: #e0e0e9;
+        font-size: 0.84rem;
+        line-height: 1.65;
+      }
+
+      .edit-board {
+        display: grid;
+        grid-template-columns: 1fr 62px 1fr;
+        align-items: stretch;
+        gap: 14px;
+        margin-top: 24px;
+      }
+
+      .edit-state {
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--white);
+      }
+
+      .edit-state.after {
+        border-color: #b8d9cb;
+        background: #eff8f3;
+      }
+
+      .edit-state-label {
+        margin-bottom: 12px;
+        color: var(--muted);
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .edit-state h3 {
+        margin-bottom: 9px;
+        font-family: var(--serif);
+        font-size: 1.37rem;
+        font-weight: 500;
+      }
+
+      .edit-state p {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.65;
+      }
+
+      .segment {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 13px;
+        padding: 10px 12px;
+        border-radius: 9px;
+        background: #f0edf8;
+        color: var(--ink);
+        font-size: 0.82rem;
+        font-weight: 650;
+      }
+
+      .segment.removed {
+        background: #fce9e5;
+        color: #8e5147;
+      }
+
+      .segment-name.removed {
+        text-decoration: line-through;
+        text-decoration-color: #d66b59;
+      }
+
+      .mock-remove {
+        flex: 0 0 auto;
+        margin-left: auto;
+        padding: 4px 8px;
+        border-radius: 6px;
+        background: white;
+        color: #8e5147;
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .segment-note {
+        margin-top: 13px;
+      }
+
+      .phase-followup {
+        margin-top: 18px;
+        margin-bottom: 0;
+      }
+
+      .segment-dot {
+        width: 9px;
+        height: 9px;
+        flex: 0 0 auto;
+        border-radius: 50%;
+        background: #9486ce;
+      }
+
+      .segment.removed .segment-dot {
+        background: var(--coral);
+      }
+
+      .edit-arrow {
+        display: grid;
+        place-items: center;
+        color: #6d7289;
+        font-size: 1.5rem;
+      }
+
+      .edit-note {
+        margin-top: 17px;
+        padding: 17px 20px;
+        border-radius: 13px;
+        background: #ece5ff;
+        color: #4a4662;
+        font-size: 0.9rem;
+        line-height: 1.7;
+      }
+
+      .edit-note strong {
+        color: var(--ink);
+      }
+
+      .class-timeline {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--white);
+      }
+
+      .class-row {
+        display: grid;
+        grid-template-columns: 105px 1fr;
+        gap: 20px;
+        padding: 20px 24px;
+      }
+
+      .class-row + .class-row {
+        border-top: 1px solid var(--line);
+      }
+
+      .class-time {
+        color: #77718d;
+        font-size: 0.82rem;
+        font-variant-numeric: tabular-nums;
+        font-weight: 800;
+      }
+
+      .class-row h3 {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 6px;
+        font-family: var(--serif);
+        font-size: 1.3rem;
+        font-weight: 500;
+      }
+
+      .class-row p {
+        max-width: 700px;
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 0.89rem;
+        line-height: 1.7;
+      }
+
+      .video-tag {
+        padding: 4px 8px;
+        border-radius: 99px;
+        background: #f0edf8;
+        color: #5e5586;
+        font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+        font-size: 0.66rem;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .class-row.highlight {
+        background: #f0edf8;
+      }
+
+      .teacher-voice {
+        margin-top: 23px;
+        padding: 24px 27px;
+        border-radius: 15px;
+        background: var(--yellow);
+      }
+
+      .teacher-voice p {
+        margin: 0;
+        font-family: var(--serif);
+        font-size: clamp(1.3rem, 3vw, 1.8rem);
+        letter-spacing: -0.025em;
+        line-height: 1.4;
+      }
+
+      .teacher-voice span {
+        display: block;
+        margin-top: 8px;
+        color: #625c49;
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+
+      .takeaways {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-top: 24px;
+      }
+
+      .takeaway {
+        min-height: 145px;
+        padding: 20px;
+        border-radius: 15px;
+        background: var(--white);
+      }
+
+      .takeaway span {
+        display: block;
+        margin-bottom: 14px;
+        color: #8b81b3;
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .takeaway p {
+        margin-bottom: 0;
+        font-family: var(--serif);
+        font-size: 1.2rem;
+        line-height: 1.45;
+      }
+
+      .ending {
+        margin: 0 0 75px 136px;
+        padding: 28px;
+        border-radius: 17px;
+        background: var(--mint);
+      }
+
+      .ending p {
+        margin-bottom: 8px;
+        color: #536e64;
+        font-size: 0.74rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .ending h2 {
+        max-width: 780px;
+        margin-bottom: 0;
+        font-family: var(--serif);
+        font-size: clamp(1.8rem, 3.3vw, 2.7rem);
+        font-weight: 500;
+        letter-spacing: -0.045em;
+        line-height: 1.2;
+      }
+
+      .site-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding-block: 23px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+
+      .site-footer p {
+        margin: 0;
+      }
+
+      .site-footer a {
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      :focus-visible {
+        outline: 3px solid #4d56bd;
+        outline-offset: 4px;
+      }
+
+      @media (max-width: 850px) {
+        .hero {
+          grid-template-columns: 1fr 250px;
+          gap: 28px;
+        }
+
+        .deck-list {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 680px) {
+        .wrap {
+          width: min(100% - 36px, 560px);
+        }
+
+        .topbar {
+          min-height: 68px;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 28px;
+          padding-block: 62px 45px;
+        }
+
+        h1 {
+          font-size: clamp(3rem, 12vw, 4.6rem);
+        }
+
+        .lesson-card {
+          max-width: 380px;
+        }
+
+        .waypoints {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          margin-block: 32px 55px;
+        }
+
+        .timeline::before {
+          left: 20px;
+        }
+
+        .phase {
+          grid-template-columns: 42px minmax(0, 1fr);
+          gap: 17px;
+          padding-bottom: 66px;
+        }
+
+        .phase-number {
+          width: 39px;
+          height: 39px;
+          border-width: 3px;
+        }
+
+        .phase-day {
+          display: none;
+        }
+
+        .phase h2 {
+          font-size: clamp(2rem, 8vw, 2.8rem);
+        }
+
+        .asset-grid,
+        .brief-body,
+        .brief-bottom,
+        .takeaways {
+          grid-template-columns: 1fr;
+        }
+
+        .asset-card.wide {
+          grid-column: auto;
+        }
+
+        .section-heading {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .section-heading p {
+          text-align: left;
+        }
+
+        .deck-list {
+          grid-template-columns: 1fr;
+        }
+
+        .brief-header,
+        .brief-block {
+          padding: 20px;
+        }
+
+        .brief-block + .brief-block,
+        .brief-bottom .brief-block + .brief-block {
+          border-top: 1px solid #4b4d65;
+          border-left: 0;
+        }
+
+        .brief-questions {
+          grid-template-columns: 1fr;
+        }
+
+        .edit-board {
+          grid-template-columns: 1fr;
+        }
+
+        .edit-arrow {
+          min-height: 30px;
+          transform: rotate(90deg);
+        }
+
+        .class-row {
+          grid-template-columns: 75px 1fr;
+          gap: 12px;
+          padding: 17px;
+        }
+
+        .class-row h3 {
+          font-size: 1.17rem;
+        }
+
+        .ending {
+          margin: 0 0 55px 59px;
+          padding: 22px;
+        }
+
+        .site-footer {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="wrap topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">O</span>
+        OLAM
+      </a>
+      <a class="back-link" href="index.html#classroom"><span aria-hidden="true">←</span> Back to the vision</a>
+    </header>
+
+    <main>
+      <section class="wrap hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">An illustrative teacher journey</p>
+          <h1 id="page-title">One lesson, from Sunday prep to <em>Tuesday class.</em></h1>
+          <p class="hero-copy">
+            Follow a teacher preparing a 45-minute lesson on compound interest for students aged 14–15. See what arrives in the package, how she makes it fit her class, and how the lesson unfolds.
+          </p>
+        </div>
+        <aside class="lesson-card" aria-label="Lesson overview">
+          <p class="lesson-card-label">The lesson at a glance</p>
+          <strong>Compound interest</strong>
+          <p>Money that grows on money</p>
+          <strong>45 minutes</strong>
+          <p>Students aged 14–15</p>
+          <strong>One teacher-led class</strong>
+          <p>Ready to adapt, never a fixed script</p>
+        </aside>
+      </section>
+
+      <div class="wrap">
+        <aside class="notice">
+          <span class="notice-icon" aria-hidden="true">i</span>
+          <span><strong>Illustration, not a product claim.</strong> The videos, slides, links, and editing experience below are examples of what OLAM imagines a teacher might receive.</span>
+        </aside>
+
+        <nav aria-label="Walkthrough sections">
+          <ol class="waypoints">
+            <li><a href="#package"><span class="waypoint-number">01</span> Sunday: the package</a></li>
+            <li><a href="#adapt"><span class="waypoint-number">02</span> Sunday: make it hers</a></li>
+            <li><a href="#class"><span class="waypoint-number">03</span> Tuesday: the class</a></li>
+            <li><a href="#takeaways"><span class="waypoint-number">04</span> What changed</a></li>
+          </ol>
+        </nav>
+
+        <div class="timeline">
+          <article class="phase" id="package" aria-labelledby="package-title">
+            <div class="phase-marker">
+              <span class="phase-number">01</span>
+              <span class="phase-day">Sunday</span>
+            </div>
+            <div class="phase-content">
+              <p class="phase-kicker">Before the lesson · Open the package</p>
+              <h2 id="package-title">Everything for the lesson is waiting in one place.</h2>
+              <p class="phase-intro">
+                On Sunday evening, she chooses <strong>“Compound Interest: Money That Grows on Money.”</strong> Instead of starting from a blank page, she sees a complete set of materials that fit together.
+              </p>
+
+              <div class="section-heading">
+                <h3>What she gets</h3>
+                <p>A connected lesson kit: explanations for students, tools for class, and a briefing for the teacher.</p>
+              </div>
+
+              <div class="asset-grid">
+                <article class="asset-card">
+                  <div class="asset-label">Video 01 <span class="duration">3 minutes</span></div>
+                  <h4>What is interest, and why does it snowball?</h4>
+                  <p>A friendly animated explanation starts with a question: if you lend a friend 100 shekels, what is a fair thank-you? It introduces interest, compares simple and compound interest, and shows savings growing in a clear visual example.</p>
+                </article>
+                <article class="asset-card">
+                  <div class="asset-label">Video 02 <span class="duration">3 minutes</span></div>
+                  <h4>Why time is the secret ingredient</h4>
+                  <p>A visual story compares two friends who save the same amount, but start at different times: the early starter ends up with more, despite saving for fewer years. It introduces the Rule of 72 and ends with an optional, more advanced look at continuous compounding and the number <em>e</em>.</p>
+                </article>
+
+                <article class="asset-card wide">
+                  <div class="asset-label">Teacher-led material <span class="duration">12 slides</span></div>
+                  <h4>A deck for the moments between the videos</h4>
+                  <p>The slides help the teacher lead discussion, invite predictions, and work through ideas together; they do not simply repeat the videos.</p>
+                  <ol class="deck-list">
+                    <li>Title and warm-up question</li>
+                    <li>Interest in one sentence</li>
+                    <li>Simple vs. compound interest</li>
+                    <li>The growth chart</li>
+                    <li>A practice problem to guess first</li>
+                    <li>The two-friends story</li>
+                    <li>The Rule of 72</li>
+                    <li>A worked example together</li>
+                    <li>Why starting early matters</li>
+                    <li>Common mistakes</li>
+                    <li>Three things to remember</li>
+                    <li>Optional homework preview</li>
+                  </ol>
+                </article>
+
+                <article class="asset-card">
+                  <div class="asset-label">Visual explanations</div>
+                  <h4>Charts that make the ideas visible</h4>
+                  <ul class="chart-list">
+                    <li><strong>The snowball:</strong> a straight simple-interest line beside compound interest curving upward.</li>
+                    <li><strong>Two friends:</strong> compare final savings when one starts earlier but saves for fewer years.</li>
+                    <li><strong>Money doubling:</strong> a timeline with the Rule of 72 marked.</li>
+                    <li><strong>Where growth comes from:</strong> original savings beside interest earned on interest.</li>
+                  </ul>
+                </article>
+                <article class="asset-card">
+                  <div class="asset-label">Student materials</div>
+                  <h4>Ready to print or share</h4>
+                  <ul class="plain-list">
+                    <li>A one-page summary of the key ideas and the Rule of 72.</li>
+                    <li>A short practice sheet, with answers on a separate page.</li>
+                  </ul>
+                </article>
+
+                <article class="asset-card">
+                  <div class="asset-label">For curious learners</div>
+                  <h4>More to explore, from sources the teacher trusts</h4>
+                  <p>No open-web search list: the package offers approved resources, such as a calculator, an accessible article, another explainer, a history reading, or a simple saving-choice simulation.</p>
+                </article>
+                <article class="asset-card">
+                  <div class="asset-label">For the teacher</div>
+                  <h4>A briefing before she walks in</h4>
+                  <p>A concise guide covers what the idea means, a suggested lesson flow, questions to ask, examples to use, optional advanced material, and topics to handle with care.</p>
+                </article>
+
+                <article class="teacher-brief">
+                  <header class="brief-header">
+                    <div>
+                      <p>Inside the teacher briefing</p>
+                      <h3>Ready before she walks into class</h3>
+                    </div>
+                    <span class="brief-stamp" aria-hidden="true">✳</span>
+                  </header>
+                  <div class="brief-body">
+                    <section class="brief-block">
+                      <h4>The core idea</h4>
+                      <p><strong>Compound interest</strong> means interest is calculated on the original amount and on interest already earned: money grows on top of money.</p>
+                      <p class="brief-note">The briefing also gives the lesson flow, useful examples, optional advanced material, and points to handle with care.</p>
+                    </section>
+                    <section class="brief-block">
+                      <h4>Suggested 45-minute lesson</h4>
+                      <ol class="agenda">
+                        <li><time>0–5 min</time><span>Warm-up question</span></li>
+                        <li><time>5–8 min</time><span>Video 1</span></li>
+                        <li><time>8–20 min</time><span>Discussion, simple vs. compound, and a worked example</span></li>
+                        <li><time>20–23 min</time><span>Video 2</span></li>
+                        <li><time>23–38 min</time><span>The two-friends story, Rule of 72, and practice problems</span></li>
+                        <li><time>38–43 min</time><span>Summary</span></li>
+                        <li><time>43–45 min</time><span>Optional homework and closing</span></li>
+                      </ol>
+                    </section>
+                  </div>
+                  <div class="brief-bottom">
+                    <section class="brief-block">
+                      <h4>Guiding questions</h4>
+                      <div class="brief-questions">
+                        <div class="brief-question">“If someone gave you 100 shekels today, or 110 shekels in a year, which would you choose, and why?”</div>
+                        <div class="brief-question">“Why do you think the line for compound interest curves upward instead of staying straight?”</div>
+                        <div class="brief-question">“Who ends up with more: someone saving for 10 years starting early, or 20 years starting late? Guess before we look.”</div>
+                        <div class="brief-question">“Can compound interest ever work against you? Where?”</div>
+                        <div class="brief-question">“If you could tell your future self one thing about money, what would it be?”</div>
+                      </div>
+                    </section>
+                    <section class="brief-block">
+                      <h4>Examples and care notes</h4>
+                      <ul class="plain-list">
+                        <li><strong>Examples:</strong> 1,000 shekels at 5% year by year; a savings account growing over time.</li>
+                        <li><strong>Optional depth:</strong> the formula, continuous compounding and <em>e</em>, or how inflation changes the real value of interest.</li>
+                      </ul>
+                      <div class="care-note">
+                        <strong>Handle with care:</strong> avoid asking about students’ family savings. Debt can feel personal, so discuss it sensitively. If conversation turns to specific investments or earnings, steer back to the learning idea.
+                      </div>
+                    </section>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </article>
+
+          <article class="phase" id="adapt" aria-labelledby="adapt-title">
+            <div class="phase-marker">
+              <span class="phase-number">02</span>
+              <span class="phase-day">Sunday</span>
+            </div>
+            <div class="phase-content">
+              <p class="phase-kicker">A few minutes later · Make it hers</p>
+              <h2 id="adapt-title">She edits the lesson to fit her students.</h2>
+              <p class="phase-intro">
+                She watches the videos and notices that the final minute of Video 2 goes beyond what this class needs. She selects that segment and removes it in one click, without throwing away the rest.
+              </p>
+
+              <div class="edit-board" aria-label="Illustration of the teacher shortening Video 2">
+                <section class="edit-state">
+                  <p class="edit-state-label">Before · 3 minutes</p>
+                  <h3>Video 2: Why time is the secret ingredient</h3>
+                  <p>She selects the final segment and clicks <strong>Remove</strong>:</p>
+                  <div class="segment"><span class="segment-dot"></span>The two-friends story</div>
+                  <div class="segment"><span class="segment-dot"></span>The Rule of 72</div>
+                  <div class="segment removed">
+                    <span class="segment-dot"></span>
+                    <span class="segment-name removed">Continuous compounding and <em>e</em></span>
+                    <span class="mock-remove">Remove</span>
+                  </div>
+                </section>
+                <div class="edit-arrow" aria-hidden="true">→</div>
+                <section class="edit-state after">
+                  <p class="edit-state-label">After · 2 minutes</p>
+                  <h3>Ends where this class is ready to stop</h3>
+                  <div class="segment"><span class="segment-dot"></span>The two-friends story</div>
+                  <div class="segment"><span class="segment-dot"></span>The Rule of 72</div>
+                  <p class="segment-note">The video now ends after the Rule of 72.</p>
+                </section>
+              </div>
+
+              <div class="edit-note">
+                <strong>The rest stays connected.</strong> The slide deck updates to match. The advanced idea remains in the teacher briefing as an optional example. If she wants to add her grandmother’s savings story, she can add it to the lesson too.
+              </div>
+              <p class="phase-intro phase-followup">
+                Now the videos total about five minutes in a 45-minute class. She has reviewed the materials, made one targeted edit, and is ready to teach.
+              </p>
+            </div>
+          </article>
+
+          <article class="phase" id="class" aria-labelledby="class-title">
+            <div class="phase-marker">
+              <span class="phase-number">03</span>
+              <span class="phase-day">Tuesday</span>
+            </div>
+            <div class="phase-content">
+              <p class="phase-kicker">In the classroom · The teacher leads</p>
+              <h2 id="class-title">The explanations support the class. They don’t take it over.</h2>
+              <p class="phase-intro">
+                She controls the pace and decides what to show. The short videos open up ideas; the conversation, examples, and practice belong to her and the students.
+              </p>
+
+              <div class="class-timeline" aria-label="45-minute class plan">
+                <article class="class-row">
+                  <div class="class-time">0–5 min</div>
+                  <div>
+                    <h3>Start with a question</h3>
+                    <p>She asks whether students would choose 100 shekels today or 110 in a year. Hands go up; she lets the debate run before revealing an answer.</p>
+                  </div>
+                </article>
+                <article class="class-row highlight">
+                  <div class="class-time">5–8 min</div>
+                  <div>
+                    <h3>Watch, then wonder <span class="video-tag">Video 1 · 3 min</span></h3>
+                    <p>The animation introduces interest and the snowball effect. Then she takes over with the chart: “Why do you think the line curves?” Students guess before she explains.</p>
+                  </div>
+                </article>
+                <article class="class-row">
+                  <div class="class-time">8–20 min</div>
+                  <div>
+                    <h3>Work it out together</h3>
+                    <p>Class works through 1,000 shekels at 5%, year by year. Students do the arithmetic and notice the pattern. She adds her own grandmother’s savings story.</p>
+                  </div>
+                </article>
+                <article class="class-row highlight">
+                  <div class="class-time">20–22 min</div>
+                  <div>
+                    <h3>Return to the visual <span class="video-tag">Edited Video 2 · 2 min</span></h3>
+                    <p>The shortened clip shows the two-friends story and Rule of 72, then ends before the advanced formula.</p>
+                  </div>
+                </article>
+                <article class="class-row">
+                  <div class="class-time">22–38 min</div>
+                  <div>
+                    <h3>Discuss, guess, and practice</h3>
+                    <p>Students compare the early and late saver, then practice the Rule of 72 in pairs. A question about loans comes up; she handles it carefully using the briefing’s heads-up.</p>
+                  </div>
+                </article>
+                <article class="class-row">
+                  <div class="class-time">38–45 min</div>
+                  <div>
+                    <h3>Close with room for choice</h3>
+                    <p>She summarizes three things to remember and offers optional homework to students who want it. The class ends with a few minutes for questions.</p>
+                  </div>
+                </article>
+              </div>
+
+              <div class="teacher-voice">
+                <p>“Most of the lesson was hers. The explaining that needed charts and animation was handled by the videos; she spent her energy on the conversation.”</p>
+                <span>The point of the example</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="phase" id="takeaways" aria-labelledby="takeaways-title">
+            <div class="phase-marker">
+              <span class="phase-number">04</span>
+              <span class="phase-day">The point</span>
+            </div>
+            <div class="phase-content">
+              <p class="phase-kicker">What the journey makes possible</p>
+              <h2 id="takeaways-title">A useful starting point, with the teacher still in charge.</h2>
+              <p class="phase-intro">
+                She did not search for every resource or build the lesson from scratch. She arrived prepared, changed what did not fit, and stayed in control of the class from beginning to end.
+              </p>
+              <div class="takeaways">
+                <article class="takeaway">
+                  <span>Before</span>
+                  <p>One package brings the teaching materials and teacher preparation together.</p>
+                </article>
+                <article class="takeaway">
+                  <span>Adapt</span>
+                  <p>She can remove one part, keep advanced material optional, and add her own story.</p>
+                </article>
+                <article class="takeaway">
+                  <span>During</span>
+                  <p>Only five minutes are video; most of the class is teacher-led learning.</p>
+                </article>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="ending">
+          <p>One connected flow</p>
+          <h2>Get a strong starting point. Make it yours. Lead the room. Offer the next step.</h2>
+        </div>
+      </div>
+    </main>
+
+    <footer class="wrap site-footer">
+      <p><strong>OLAM</strong> · Open Learning Adaptive Materials</p>
+      <a href="index.html">Back to the vision <span aria-hidden="true">↗</span></a>
+    </footer>
+  </body>
+</html>
