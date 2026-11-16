@@ -263,18 +263,34 @@
         font-size: 0.68rem;
       }
 
+      .waypoints li:nth-child(2) .waypoint-number {
+        background: var(--coral);
+      }
+
+      .waypoints li:nth-child(3) .waypoint-number {
+        background: var(--mint);
+      }
+
+      .waypoints li:nth-child(4) .waypoint-number {
+        background: var(--lilac);
+      }
+
       .timeline {
         position: relative;
-        padding-bottom: 24px;
+        margin-bottom: 70px;
+        padding: 56px 36px 22px;
+        border-radius: 24px;
+        background: var(--ink);
+        color: white;
       }
 
       .timeline::before {
         position: absolute;
         top: 20px;
         bottom: 60px;
-        left: 47px;
+        left: 83px;
         width: 1px;
-        background: var(--line);
+        background: #55586c;
         content: "";
       }
 
@@ -304,7 +320,7 @@
         width: 43px;
         height: 43px;
         place-items: center;
-        border: 4px solid var(--paper);
+        border: 4px solid var(--ink);
         border-radius: 50%;
         background: var(--ink);
         color: white;
@@ -323,18 +339,18 @@
       }
 
       .phase:nth-child(3) .phase-number {
-        background: var(--lilac);
+        background: var(--mint);
         color: var(--ink);
       }
 
       .phase:nth-child(4) .phase-number {
-        background: var(--mint);
+        background: var(--lilac);
         color: var(--ink);
       }
 
       .phase-day {
         margin-top: 10px;
-        color: var(--muted);
+        color: #b7b9cd;
         font-size: 0.68rem;
         font-weight: 800;
         letter-spacing: 0.08em;
@@ -348,7 +364,7 @@
 
       .phase-kicker {
         margin-bottom: 10px;
-        color: var(--muted);
+        color: #b7b9cd;
         font-size: 0.74rem;
         font-weight: 800;
         letter-spacing: 0.12em;
@@ -362,28 +378,13 @@
         font-weight: 500;
         letter-spacing: -0.055em;
         line-height: 1.08;
-      }
-
-      .phase:nth-child(1) h2 {
-        color: #806000;
-      }
-
-      .phase:nth-child(2) h2 {
-        color: #b74736;
-      }
-
-      .phase:nth-child(3) h2 {
-        color: #6555a8;
-      }
-
-      .phase:nth-child(4) h2 {
-        color: #347257;
+        color: white;
       }
 
       .phase-intro {
         max-width: 760px;
         margin-bottom: 29px;
-        color: var(--muted);
+        color: #c4c5d3;
         font-size: 1.02rem;
         line-height: 1.8;
       }
@@ -407,7 +408,7 @@
       .section-heading p {
         max-width: 390px;
         margin: 0;
-        color: var(--muted);
+        color: #b7b9cd;
         font-size: 0.86rem;
         line-height: 1.6;
         text-align: right;
@@ -459,6 +460,7 @@
         font-weight: 500;
         letter-spacing: -0.025em;
         line-height: 1.2;
+        color: var(--ink);
       }
 
       .asset-card p {
@@ -470,6 +472,102 @@
 
       .asset-card p + p {
         margin-top: 12px;
+      }
+
+      .disclosure {
+        margin-top: 15px;
+        border-top: 1px solid var(--line);
+      }
+
+      .disclosure > summary,
+      .asset-more > summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        cursor: pointer;
+        list-style: none;
+      }
+
+      .disclosure > summary {
+        padding: 13px 0 2px;
+        color: #5a5d72;
+        font-size: 0.82rem;
+        font-weight: 750;
+      }
+
+      .disclosure > summary::-webkit-details-marker,
+      .asset-more > summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .disclosure > summary::after,
+      .asset-more > summary::after {
+        display: grid;
+        width: 25px;
+        height: 25px;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 50%;
+        background: #f0edf8;
+        color: #6555a8;
+        content: "+";
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .disclosure[open] > summary::after,
+      .asset-more[open] > summary::after {
+        content: "−";
+      }
+
+      .disclosure-content {
+        padding-top: 10px;
+      }
+
+      .asset-more {
+        grid-column: 1 / -1;
+        overflow: hidden;
+        padding: 0;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--white);
+      }
+
+      .asset-more > summary {
+        padding: 21px 23px;
+      }
+
+      .asset-more-copy {
+        display: grid;
+        gap: 5px;
+      }
+
+      .asset-more-copy .asset-label {
+        margin-bottom: 1px;
+      }
+
+      .asset-more-copy strong {
+        font-family: var(--serif);
+        font-size: 1.3rem;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+      }
+
+      .asset-more-copy > span:last-child {
+        color: var(--muted);
+        font-size: 0.85rem;
+        line-height: 1.5;
+      }
+
+      .asset-more-content {
+        padding: 0 20px 20px;
+        border-top: 1px solid var(--line);
+      }
+
+      .asset-more-content .asset-grid {
+        padding-top: 19px;
       }
 
       .deck-list {
@@ -664,6 +762,35 @@
         font-weight: 750;
       }
 
+      .agenda-light li {
+        border-color: var(--line);
+        color: #505267;
+      }
+
+      .agenda-light time {
+        color: #6555a8;
+      }
+
+      .question-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin: 12px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .question-list li {
+        padding: 13px 14px;
+        border: 1px solid var(--line);
+        border-radius: 11px;
+        background: #fbfaf6;
+        color: #505267;
+        font-family: var(--serif);
+        font-size: 0.98rem;
+        line-height: 1.5;
+      }
+
       .brief-questions {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -735,6 +862,7 @@
         font-family: var(--serif);
         font-size: 1.37rem;
         font-weight: 500;
+        color: var(--ink);
       }
 
       .edit-state p {
@@ -857,6 +985,7 @@
         font-family: var(--serif);
         font-size: 1.3rem;
         font-weight: 500;
+        color: var(--ink);
       }
 
       .class-row p {
@@ -896,6 +1025,7 @@
         font-size: clamp(1.3rem, 3vw, 1.8rem);
         letter-spacing: -0.025em;
         line-height: 1.4;
+        color: var(--ink);
       }
 
       .teacher-voice span {
@@ -935,6 +1065,7 @@
         font-family: var(--serif);
         font-size: 1.2rem;
         line-height: 1.45;
+        color: var(--ink);
       }
 
       .ending {
@@ -1029,7 +1160,13 @@
         }
 
         .timeline::before {
-          left: 20px;
+          left: 37px;
+        }
+
+        .timeline {
+          margin-bottom: 55px;
+          padding: 34px 16px 10px;
+          border-radius: 18px;
         }
 
         .phase {
@@ -1092,7 +1229,7 @@
         }
 
         .edit-board {
-          grid-template-columns: 1fr;
+          grid-template-columns: minmax(0, 1fr);
         }
 
         .edit-arrow {
@@ -1168,10 +1305,10 @@
 
         <nav aria-label="Walkthrough sections">
           <ol class="waypoints">
-            <li><a href="#package"><span class="waypoint-number">01</span> Sunday: the package</a></li>
-            <li><a href="#adapt"><span class="waypoint-number">02</span> Sunday: make it hers</a></li>
-            <li><a href="#class"><span class="waypoint-number">03</span> Tuesday: the class</a></li>
-            <li><a href="#takeaways"><span class="waypoint-number">04</span> What changed</a></li>
+            <li><a href="#package"><span class="waypoint-number">01</span> Start here</a></li>
+            <li><a href="#adapt"><span class="waypoint-number">02</span> Before class</a></li>
+            <li><a href="#class"><span class="waypoint-number">03</span> In the classroom</a></li>
+            <li><a href="#takeaways"><span class="waypoint-number">04</span> After class</a></li>
           </ol>
         </nav>
 
@@ -1182,129 +1319,159 @@
               <span class="phase-day">Sunday</span>
             </div>
             <div class="phase-content">
-              <p class="phase-kicker">Before the lesson · Open the package</p>
-              <h2 id="package-title">Everything for the lesson is waiting in one place.</h2>
+              <p class="phase-kicker">Start here · Sunday evening · Preparation phase</p>
+              <h2 id="package-title">Get the whole picture</h2>
               <p class="phase-intro">
-                On Sunday evening, she chooses <strong>“Compound Interest: Money That Grows on Money.”</strong> Instead of starting from a blank page, she sees a complete set of materials that fit together.
+                OLAM's vision is to provide lessons written with leading subject experts, ready to use straight out of the box: coordinated videos, slides, classroom resources, student handouts, and a suggested lesson breakdown. Why reinvent the wheel? Use the package as-is, then adapt only what this class needs.
               </p>
 
               <div class="section-heading">
-                <h3>What she gets</h3>
-                <p>A connected lesson kit: explanations for students, tools for class, and a briefing for the teacher.</p>
+                <h3>Inside the preparation package</h3>
+                <p>Start with the essentials. Expand any item to see the detailed example.</p>
               </div>
 
               <div class="asset-grid">
                 <article class="asset-card">
                   <div class="asset-label">Video 01 <span class="duration">3 minutes</span></div>
                   <h4>What is interest, and why does it snowball?</h4>
-                  <p>A friendly animated explanation starts with a question: if you lend a friend 100 shekels, what is a fair thank-you? It introduces interest, compares simple and compound interest, and shows savings growing in a clear visual example.</p>
+                  <p>A short animation explains interest and shows how money can grow faster when it grows on itself.</p>
+                  <details class="disclosure">
+                    <summary>What happens in this video</summary>
+                    <div class="disclosure-content">
+                      <p>It starts with a question about lending a friend 100 shekels, then compares simple and compound interest and shows savings growing in an animated example.</p>
+                    </div>
+                  </details>
                 </article>
                 <article class="asset-card">
                   <div class="asset-label">Video 02 <span class="duration">3 minutes</span></div>
                   <h4>Why time is the secret ingredient</h4>
-                  <p>A visual story compares two friends who save the same amount, but start at different times: the early starter ends up with more, despite saving for fewer years. It introduces the Rule of 72 and ends with an optional, more advanced look at continuous compounding and the number <em>e</em>.</p>
+                  <p>A story about two savers shows why starting earlier can matter, and introduces the Rule of 72.</p>
+                  <details class="disclosure">
+                    <summary>What happens in this video</summary>
+                    <div class="disclosure-content">
+                      <p>Two friends save the same amount, but start at different times; the early starter ends up with more despite saving for fewer years. The final minute introduces continuous compounding and the number <em>e</em>.</p>
+                    </div>
+                  </details>
                 </article>
 
                 <article class="asset-card wide">
-                  <div class="asset-label">Teacher-led material <span class="duration">12 slides</span></div>
-                  <h4>A deck for the moments between the videos</h4>
-                  <p>The slides help the teacher lead discussion, invite predictions, and work through ideas together; they do not simply repeat the videos.</p>
-                  <ol class="deck-list">
-                    <li>Title and warm-up question</li>
-                    <li>Interest in one sentence</li>
-                    <li>Simple vs. compound interest</li>
-                    <li>The growth chart</li>
-                    <li>A practice problem to guess first</li>
-                    <li>The two-friends story</li>
-                    <li>The Rule of 72</li>
-                    <li>A worked example together</li>
-                    <li>Why starting early matters</li>
-                    <li>Common mistakes</li>
-                    <li>Three things to remember</li>
-                    <li>Optional homework preview</li>
+                  <div class="asset-label">Slide deck <span class="duration">12 slides</span></div>
+                  <h4>A deck about compound interest</h4>
+                  <p>Discussion prompts, charts, and practice activities for the teacher-led lesson—not a repeat of the videos.</p>
+                  <details class="disclosure">
+                    <summary>Expand to see the suggested 12 slides</summary>
+                    <div class="disclosure-content">
+                      <ol class="deck-list">
+                        <li>Title and warm-up question</li>
+                        <li>Interest in one sentence</li>
+                        <li>Simple vs. compound interest</li>
+                        <li>The growth chart</li>
+                        <li>A practice problem to guess first</li>
+                        <li>The two-friends story</li>
+                        <li>The Rule of 72</li>
+                        <li>A worked example together</li>
+                        <li>Why starting early matters</li>
+                        <li>Common mistakes</li>
+                        <li>Three things to remember</li>
+                        <li>Optional homework preview</li>
+                      </ol>
+                    </div>
+                  </details>
+                </article>
+
+                <article class="asset-card wide">
+                  <div class="asset-label">Suggested class plan <span class="duration">45 minutes</span></div>
+                  <h4>A clear pace for the lesson</h4>
+                  <ol class="agenda agenda-light">
+                    <li><time>0–5 min</time><span>Warm-up question</span></li>
+                    <li><time>5–8 min</time><span>Video 1</span></li>
+                    <li><time>8–20 min</time><span>Discussion and a worked example</span></li>
+                    <li><time>20–23 min</time><span>Video 2</span></li>
+                    <li><time>23–38 min</time><span>Two-friends story and practice</span></li>
+                    <li><time>38–43 min</time><span>Summary</span></li>
+                    <li><time>43–45 min</time><span>Optional homework and closing</span></li>
                   </ol>
                 </article>
 
                 <article class="asset-card">
-                  <div class="asset-label">Visual explanations</div>
-                  <h4>Charts that make the ideas visible</h4>
-                  <ul class="chart-list">
-                    <li><strong>The snowball:</strong> a straight simple-interest line beside compound interest curving upward.</li>
-                    <li><strong>Two friends:</strong> compare final savings when one starts earlier but saves for fewer years.</li>
-                    <li><strong>Money doubling:</strong> a timeline with the Rule of 72 marked.</li>
-                    <li><strong>Where growth comes from:</strong> original savings beside interest earned on interest.</li>
-                  </ul>
-                </article>
-                <article class="asset-card">
-                  <div class="asset-label">Student materials</div>
-                  <h4>Ready to print or share</h4>
-                  <ul class="plain-list">
-                    <li>A one-page summary of the key ideas and the Rule of 72.</li>
-                    <li>A short practice sheet, with answers on a separate page.</li>
-                  </ul>
-                </article>
-
-                <article class="asset-card">
-                  <div class="asset-label">For curious learners</div>
-                  <h4>More to explore, from sources the teacher trusts</h4>
-                  <p>No open-web search list: the package offers approved resources, such as a calculator, an accessible article, another explainer, a history reading, or a simple saving-choice simulation.</p>
-                </article>
-                <article class="asset-card">
-                  <div class="asset-label">For the teacher</div>
-                  <h4>A briefing before she walks in</h4>
-                  <p>A concise guide covers what the idea means, a suggested lesson flow, questions to ask, examples to use, optional advanced material, and topics to handle with care.</p>
-                </article>
-
-                <article class="teacher-brief">
-                  <header class="brief-header">
-                    <div>
-                      <p>Inside the teacher briefing</p>
-                      <h3>Ready before she walks into class</h3>
-                    </div>
-                    <span class="brief-stamp" aria-hidden="true">✳</span>
-                  </header>
-                  <div class="brief-body">
-                    <section class="brief-block">
-                      <h4>The core idea</h4>
-                      <p><strong>Compound interest</strong> means interest is calculated on the original amount and on interest already earned: money grows on top of money.</p>
-                      <p class="brief-note">The briefing also gives the lesson flow, useful examples, optional advanced material, and points to handle with care.</p>
-                    </section>
-                    <section class="brief-block">
-                      <h4>Suggested 45-minute lesson</h4>
-                      <ol class="agenda">
-                        <li><time>0–5 min</time><span>Warm-up question</span></li>
-                        <li><time>5–8 min</time><span>Video 1</span></li>
-                        <li><time>8–20 min</time><span>Discussion, simple vs. compound, and a worked example</span></li>
-                        <li><time>20–23 min</time><span>Video 2</span></li>
-                        <li><time>23–38 min</time><span>The two-friends story, Rule of 72, and practice problems</span></li>
-                        <li><time>38–43 min</time><span>Summary</span></li>
-                        <li><time>43–45 min</time><span>Optional homework and closing</span></li>
-                      </ol>
-                    </section>
-                  </div>
-                  <div class="brief-bottom">
-                    <section class="brief-block">
-                      <h4>Guiding questions</h4>
-                      <div class="brief-questions">
-                        <div class="brief-question">“If someone gave you 100 shekels today, or 110 shekels in a year, which would you choose, and why?”</div>
-                        <div class="brief-question">“Why do you think the line for compound interest curves upward instead of staying straight?”</div>
-                        <div class="brief-question">“Who ends up with more: someone saving for 10 years starting early, or 20 years starting late? Guess before we look.”</div>
-                        <div class="brief-question">“Can compound interest ever work against you? Where?”</div>
-                        <div class="brief-question">“If you could tell your future self one thing about money, what would it be?”</div>
-                      </div>
-                    </section>
-                    <section class="brief-block">
-                      <h4>Examples and care notes</h4>
-                      <ul class="plain-list">
-                        <li><strong>Examples:</strong> 1,000 shekels at 5% year by year; a savings account growing over time.</li>
-                        <li><strong>Optional depth:</strong> the formula, continuous compounding and <em>e</em>, or how inflation changes the real value of interest.</li>
+                  <div class="asset-label">Discussion prompts</div>
+                  <h4>Suggested follow-up questions</h4>
+                  <p>Questions to invite predictions, check understanding, and connect the idea to real life.</p>
+                  <details class="disclosure">
+                    <summary>Expand to see five suggested questions</summary>
+                    <div class="disclosure-content">
+                      <ul class="question-list">
+                        <li>“If someone gave you 100 shekels today, or 110 shekels in a year, which would you choose, and why?”</li>
+                        <li>“Why do you think the line for compound interest curves upward instead of staying straight?”</li>
+                        <li>“Who ends up with more: someone saving for 10 years starting early, or 20 years starting late? Guess before we look.”</li>
+                        <li>“Can compound interest ever work against you? Where?”</li>
+                        <li>“If you could tell your future self one thing about money, what would it be?”</li>
                       </ul>
-                      <div class="care-note">
-                        <strong>Handle with care:</strong> avoid asking about students’ family savings. Debt can feel personal, so discuss it sensitively. If conversation turns to specific investments or earnings, steer back to the learning idea.
-                      </div>
-                    </section>
-                  </div>
+                    </div>
+                  </details>
                 </article>
+
+                <details class="asset-more">
+                  <summary>
+                    <span class="asset-more-copy">
+                      <span class="asset-label">More in the package</span>
+                      <strong>Charts, student materials, trusted links, and teacher notes</strong>
+                      <span>Expand to see the supporting resources and preparation notes.</span>
+                    </span>
+                  </summary>
+                  <div class="asset-more-content">
+                    <div class="asset-grid">
+                      <article class="asset-card">
+                        <div class="asset-label">Visual explanations</div>
+                        <h4>Charts that make the ideas visible</h4>
+                        <ul class="chart-list">
+                          <li><strong>The snowball:</strong> a straight simple-interest line beside compound interest curving upward.</li>
+                          <li><strong>Two friends:</strong> compare final savings when one starts earlier but saves for fewer years.</li>
+                          <li><strong>Money doubling:</strong> a timeline with the Rule of 72 marked.</li>
+                          <li><strong>Where growth comes from:</strong> original savings beside interest earned on interest.</li>
+                        </ul>
+                      </article>
+                      <article class="asset-card">
+                        <div class="asset-label">Student materials</div>
+                        <h4>Ready to print or share</h4>
+                        <ul class="plain-list">
+                          <li>A one-page summary of the key ideas and the Rule of 72.</li>
+                          <li>A short practice sheet, with answers on a separate page.</li>
+                        </ul>
+                      </article>
+                      <article class="asset-card">
+                        <div class="asset-label">For curious learners</div>
+                        <h4>More to explore, from sources the teacher trusts</h4>
+                        <p>No open-web search list: the package offers approved resources, such as a calculator, an accessible article, another explainer, a history reading, or a simple saving-choice simulation.</p>
+                      </article>
+                      <article class="teacher-brief">
+                        <header class="brief-header">
+                          <div>
+                            <p>For the teacher</p>
+                            <h3>A briefing before she walks in</h3>
+                          </div>
+                          <span class="brief-stamp" aria-hidden="true">✳</span>
+                        </header>
+                        <div class="brief-bottom">
+                          <section class="brief-block">
+                            <h4>Subject preparation</h4>
+                            <p>Compound interest is interest on the original amount and on interest already earned: money grows on top of money.</p>
+                            <ul class="plain-list">
+                              <li><strong>Example:</strong> 1,000 shekels at 5%, year by year.</li>
+                              <li><strong>Optional depth:</strong> the formula, continuous compounding and <em>e</em>, or how inflation changes the real value of interest.</li>
+                            </ul>
+                          </section>
+                          <section class="brief-block">
+                            <h4>Topics to handle with care</h4>
+                            <div class="care-note">
+                              Avoid asking about students’ family savings. Debt can feel personal, so discuss it sensitively. If conversation turns to specific investments or earnings, steer back to the learning idea.
+                            </div>
+                          </section>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                </details>
               </div>
             </div>
           </article>
@@ -1315,8 +1482,8 @@
               <span class="phase-day">Sunday</span>
             </div>
             <div class="phase-content">
-              <p class="phase-kicker">A few minutes later · Make it hers</p>
-              <h2 id="adapt-title">She edits the lesson to fit her students.</h2>
+              <p class="phase-kicker">Before class · Sunday evening</p>
+              <h2 id="adapt-title">Make it fit</h2>
               <p class="phase-intro">
                 She watches the videos and notices that the final minute of Video 2 goes beyond what this class needs. She selects that segment and removes it in one click, without throwing away the rest.
               </p>
@@ -1359,8 +1526,8 @@
               <span class="phase-day">Tuesday</span>
             </div>
             <div class="phase-content">
-              <p class="phase-kicker">In the classroom · The teacher leads</p>
-              <h2 id="class-title">The explanations support the class. They don’t take it over.</h2>
+              <p class="phase-kicker">In the classroom · Tuesday</p>
+              <h2 id="class-title">Lead the learning</h2>
               <p class="phase-intro">
                 She controls the pace and decides what to show. The short videos open up ideas; the conversation, examples, and practice belong to her and the students.
               </p>
@@ -1420,11 +1587,11 @@
           <article class="phase" id="takeaways" aria-labelledby="takeaways-title">
             <div class="phase-marker">
               <span class="phase-number">04</span>
-              <span class="phase-day">The point</span>
+              <span class="phase-day">After class</span>
             </div>
             <div class="phase-content">
-              <p class="phase-kicker">What the journey makes possible</p>
-              <h2 id="takeaways-title">A useful starting point, with the teacher still in charge.</h2>
+              <p class="phase-kicker">Offer the next step</p>
+              <h2 id="takeaways-title">Keep curiosity going</h2>
               <p class="phase-intro">
                 She did not search for every resource or build the lesson from scratch. She arrived prepared, changed what did not fit, and stayed in control of the class from beginning to end.
               </p>
